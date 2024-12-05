@@ -11,12 +11,12 @@ pipeline {
                 echo 'Démarrage des tests...'
                 // Vérifier que le fichier index.html existe
                 sh '''
-                if exist index.html (
+                if [ -f index.html ]; then
                     echo "Fichier index.html présent"
-                ) else (
+                else
                     echo "Fichier index.html manquant"
-                    exit /b 1
-                )
+                    exit 1
+                fi
                 '''
             }
         }
